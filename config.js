@@ -5,7 +5,11 @@ require('dotenv').config()
 
 const config = {
   port: process.env.PORT || 5000,
+<<<<<<< HEAD
   host: process.env.HOST || 'http://localhost:5000',
+=======
+  host: process.env.HOST || "http://localhost:5000",
+>>>>>>> 85831c0cef4485b25eb78ac0e6b30a376f953458
   nodeEnv: process.env.NODE_ENV || "dev", //? dev, prod, test
   jwtSecret: process.env.JWT_SECRET,
   db: {

@@ -3,22 +3,9 @@ const { host } = require('../../config')
 //! const { findAllUsers, findUserById, createUser, updateUser } = require('./users.controllers')
 
 const getAllUsers = (req, res) => {
-
-    const offset = Number(req.query.offset) || 0
-    const limit = Number(req.query.limit) || 10
-
-    userControllers.findAllUsers(offset, limit)
+    userControllers.findAllUsers()
         .then((data) => {
-
-            const nextPageUrl = data.count - offset > limit ? `${host}/api/v1/posts?limit=${limit}&offset=${offset + limit}` : null;
-            const prevPageUrl = (offset - limit) >= 0 ? `${host}/api/v1/posts?limit=${limit}&offset=${offset - limit}` : null;
-            
-            res.status(200).json({
-                count: data.count,
-                next: nextPageUrl,
-                prev: prevPageUrl,
-                results: data.rows
-            })
+            res.status(200).json({message: `El usuario ${req.user.firstName} hizo esta peticion`, data})
         })
         .catch((err) => {
             res.status(400).json({message: 'Bad request', err})
@@ -47,7 +34,7 @@ const postNewUser = (req, res) => {
             res.status(201).json(data)
         })
         .catch(err => {
-            res.status(400).json({message: 'Bad request', err})
+            res.status(400).json({message: 'Bad request', err: err.message})
         })
 }
 

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const uuid = require("uuid");
 
 const Comments = require("../models/comments.models");
@@ -38,8 +39,48 @@ const createComment = async (commentObj) => {
 // })
 //   .then((data) => console.log(data))
 //   .catch((err) => console.log(err));
+=======
+const uuid = require('uuid')
+
+const Comments = require('../models/comments.models')
+const Posts = require('../models/posts.models')
+const Users = require('../models/users.models')
+
+const findAllCommentsByPostId = async (postId) => {
+    const comments = await Comments.findAll({
+        where: {
+            postId: postId
+        },
+        include: [
+            {
+                model: Users
+            },
+            {
+                model: Posts
+            }
+        ]
+
+    })
+    return comments
+}
+
+const createComment = async (commentObj) => {
+    const newComment = await Comments.create({
+        id: uuid.v4(),
+        content: commentObj.content,
+        postId: commentObj.postId,
+        userId: commentObj.userId
+    })
+    return newComment
+}
+
+>>>>>>> 85831c0cef4485b25eb78ac0e6b30a376f953458
 
 module.exports = {
     findAllCommentsByPostId,
     createComment
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 85831c0cef4485b25eb78ac0e6b30a376f953458
