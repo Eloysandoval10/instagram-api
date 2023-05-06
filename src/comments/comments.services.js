@@ -11,15 +11,9 @@ const getAllCommentsByPost = (req, res) => {
         })
 }
 
-<<<<<<< HEAD
-const postComment = (req, res) => {   
-    const { content } = req.body
-    const postId = req.params.id  
-=======
 const postComment = (req, res) => {
     const { content } = req.body
     const postId = req.params.id
->>>>>>> 85831c0cef4485b25eb78ac0e6b30a376f953458
     const userId = req.user.id
     commentsControllers.createComment({content, postId, userId})
         .then(data => {
@@ -34,8 +28,4 @@ const postComment = (req, res) => {
 module.exports = {
     getAllCommentsByPost,
     postComment
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 85831c0cef4485b25eb78ac0e6b30a376f953458

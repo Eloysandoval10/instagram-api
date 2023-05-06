@@ -26,11 +26,8 @@ router.route("/:id")
   .patch(userServices.patchUser)
   .delete(userServices.deleteUser);
 
-<<<<<<< HEAD
 router.route('/:id/follow')
-=======
 router.route("/:id/follow")
->>>>>>> 85831c0cef4485b25eb78ac0e6b30a376f953458
   .post(JwtPassport.authenticate('jwt', { session: false }), followServices.postNewFollow)
   .delete(JwtPassport.authenticate('jwt', { session: false }), followServices.deleteFollow)
 
