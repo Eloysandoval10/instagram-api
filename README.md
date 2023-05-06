@@ -1,7 +1,6 @@
 **Red Social**
 
-
-*TODO*
+_TODO_
 [x] CRUD de usuarios
 [x] Registro de Usuarios
 [ ] Manejar Publicaciones (CRUD)
@@ -16,9 +15,7 @@
 [ ] Amigos en comun
 [ ] Compartir publicacion
 [ ] Favoritos
-[ ] Login con diferentes cuentas 
+[ ] Login con diferentes cuentas
 
 pm2
-
-
 
